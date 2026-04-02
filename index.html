@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0058)file:///Users/julienbrunin/Downloads/dandyne_platform.html -->
+<!-- saved from url=(0060)file:///Users/julienbrunin/Downloads/dandyne_platform_1.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -911,7 +911,7 @@
 <!-- ══════════════════════════════════════════════════════════ -->
 <!-- ÉCRAN LOGIN -->
 <!-- ══════════════════════════════════════════════════════════ -->
-<div id="screen-login" style="display: none;">
+<div id="screen-login">
   <div class="login-box">
     <div class="login-logo">
       <div class="brand-mark">
@@ -948,7 +948,7 @@
 <!-- ══════════════════════════════════════════════════════════ -->
 <!-- APP PRINCIPALE -->
 <!-- ══════════════════════════════════════════════════════════ -->
-<div id="screen-app" style="display: block;">
+<div id="screen-app" style="display: none;">
   <div class="app-layout">
 
     <!-- TOPBAR -->
@@ -959,7 +959,7 @@
           <span class="brand-sub">Plateforme commerciale</span>
         </div>
         <div class="topbar-ornament"></div>
-        <div id="topbar-section" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light)">Admin</div>
+        <div id="topbar-section" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light)"></div>
       </div>
       <div class="topbar-right">
         <div class="user-pill">
@@ -974,41 +974,15 @@
     </div>
 
     <!-- SIDEBAR -->
-    <div class="sidebar" id="sidebar"><div class="nav-section"><div class="nav-section-title">Tableau de bord</div><div class="nav-item active" data-page="admin-dashboard">
-        <span class="nav-icon">⬛</span>
-        <span>Vue générale</span>
-        
-      </div><div class="nav-item" data-page="admin-commandes">
-        <span class="nav-icon">📦</span>
-        <span>Commandes</span>
-        <span class="nav-badge">47</span>
-      </div></div><div class="nav-section"><div class="nav-section-title">Réseau commercial</div><div class="nav-item" data-page="admin-agents">
-        <span class="nav-icon">🤝</span>
-        <span>Agents</span>
-        <span class="nav-badge">12</span>
-      </div><div class="nav-item active" data-page="admin-dashboard">
-        <span class="nav-icon">🍺</span>
-        <span>Clients CHR</span>
-        
-      </div><div class="nav-item active" data-page="admin-dashboard">
-        <span class="nav-icon">🏭</span>
-        <span>Brasseurs</span>
-        
-      </div></div><div class="nav-section"><div class="nav-section-title">Finance</div><div class="nav-item active" data-page="admin-dashboard">
-        <span class="nav-icon">💶</span>
-        <span>Commissions</span>
-        
-      </div><div class="nav-item active" data-page="admin-dashboard">
-        <span class="nav-icon">🎁</span>
-        <span>Cashbacks</span>
-        
-      </div></div></div>
+    <div class="sidebar" id="sidebar">
+      <!-- Généré dynamiquement selon le profil -->
+    </div>
 
     <!-- MAIN -->
     <div class="main-content" id="main-content">
 
       <!-- ── PAGE : DASHBOARD ADMIN ─────────────────────── -->
-      <div class="page active" id="page-admin-dashboard">
+      <div class="page" id="page-admin-dashboard">
         <div class="page-header">
           <div>
             <div class="page-title">Tableau de bord</div>
