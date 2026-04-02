@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///Users/julienbrunin/Downloads/dandyne_platform.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Dandyne — Plateforme Commerciale</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --gold: #CBA55D;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --black: #0A0A0A;
+    --black-soft: #111111;
+    --black-card: #161616;
+    --black-border: #222222;
+    --cream: #FAF3E0;
+    --cream-soft: #F5EDD0;
+    --gray: #555555;
+    --gray-light: #888888;
+    --white: #FFFFFF;
+    --green: #4CAF50;
+    --green-soft: #1B5E20;
+    --red: #E53935;
+    --blue: #1565C0;
+    --shadow: 0 4px 24px rgba(0,0,0,0.6);
+    --shadow-gold: 0 0 30px rgba(203,165,93,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── ÉCRAN DE CONNEXION ─────────────────────────────────── */
+  #screen-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #screen-login::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(203,165,93,0.08) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(203,165,93,0.02) 60px, rgba(203,165,93,0.02) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(203,165,93,0.02) 60px, rgba(203,165,93,0.02) 61px);
+  }
+
+  .login-box {
+    position: relative;
+    width: 420px;
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 48px;
+    box-shadow: var(--shadow), var(--shadow-gold);
+  }
+
+  .login-box::before, .login-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .login-box::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .login-box::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+  .login-logo {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .login-logo .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .logo-ornament {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  }
+
+  .login-logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .login-logo .subtitle {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray-light);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .login-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--black-border);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--black-border);
+    border-bottom-color: var(--gold-dark);
+    color: var(--white);
+    padding: 12px 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--gold);
+    background: rgba(203,165,93,0.05);
+  }
+
+  .form-group select option { background: var(--black-card); }
+
+  .btn-primary {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary:hover { color: var(--black); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .demo-profiles {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--black-border);
+  }
+
+  .demo-profiles p {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .demo-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .demo-btn {
+    padding: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--black-border);
+    color: var(--gray-light);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .demo-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(203,165,93,0.05);
+  }
+
+  /* ── LAYOUT PRINCIPAL ───────────────────────────────────── */
+  #screen-app { display: none; min-height: 100vh; }
+
+  .app-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 60px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ── TOPBAR ─────────────────────────────────────────────── */
+  .topbar {
+    grid-column: 1 / -1;
+    background: var(--black-card);
+    border-bottom: 1px solid var(--black-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topbar-brand .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .topbar-brand .brand-sub {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 1px;
+  }
+
+  .topbar-ornament {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, var(--gold-dark), transparent);
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .user-info { font-size: 11px; }
+  .user-name { color: var(--white); letter-spacing: 0.5px; }
+  .user-role {
+    font-size: 9px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .btn-logout {
+    background: none;
+    border: 1px solid var(--black-border);
+    color: var(--gray-light);
+    padding: 6px 14px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-logout:hover { border-color: var(--red); color: var(--red); }
+
+  /* ── SIDEBAR ────────────────────────────────────────────── */
+  .sidebar {
+    background: var(--black-card);
+    border-right: 1px solid var(--black-border);
+    padding: 24px 0;
+    overflow-y: auto;
+  }
+
+  .nav-section {
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+
+  .nav-section-title {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray);
+    padding: 0 8px;
+    margin-bottom: 8px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: var(--gray-light);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+    margin-bottom: 2px;
+  }
+
+  .nav-item:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .nav-item.active {
+    color: var(--gold);
+    border-left-color: var(--gold);
+    background: rgba(203,165,93,0.06);
+  }
+
+  .nav-icon { font-size: 14px; width: 18px; text-align: center; }
+
+  .nav-badge {
+    margin-left: auto;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  /* ── MAIN CONTENT ───────────────────────────────────────── */
+  .main-content {
+    background: var(--black);
+    overflow-y: auto;
+    padding: 32px;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── PAGE HEADER ────────────────────────────────────────── */
+  .page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--black-border);
+    position: relative;
+  }
+
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .page-subtitle {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-top: 4px;
+  }
+
+  /* ── STATS GRID ─────────────────────────────────────────── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .stat-card:hover { border-color: var(--gold-dark); }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-bottom: 12px;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-unit {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-light);
+    margin-left: 4px;
+  }
+
+  .stat-trend {
+    font-size: 10px;
+    color: var(--green);
+    margin-top: 8px;
+  }
+
+  /* ── CARDS ──────────────────────────────────────────────── */
+  .card {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--black-border);
+  }
+
+  .card-title {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .card-action {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    cursor: pointer;
+    border: 1px solid var(--black-border);
+    padding: 6px 12px;
+    background: none;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .card-action:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── TABLE ──────────────────────────────────────────────── */
+  .table-wrap { overflow-x: auto; }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  th {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--black-border);
+    font-weight: 400;
+  }
+
+  td {
+    padding: 14px 16px;
+    font-size: 12px;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── BADGES ─────────────────────────────────────────────── */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .badge-green  { background: rgba(76,175,80,0.15);  color: #81C784; }
+  .badge-gold   { background: rgba(203,165,93,0.15); color: var(--gold); }
+  .badge-gray   { background: rgba(255,255,255,0.06); color: var(--gray-light); }
+  .badge-red    { background: rgba(229,57,53,0.15);  color: #EF9A9A; }
+  .badge-blue   { background: rgba(21,101,192,0.15); color: #90CAF9; }
+
+  /* ── CASHBACK WIDGET ────────────────────────────────────── */
+  .cashback-widget {
+    background: linear-gradient(135deg, var(--black-card), rgba(203,165,93,0.06));
+    border: 1px solid var(--gold-dark);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cashback-widget::before {
+    content: '🫧';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    opacity: 0.1;
+  }
+
+  .cashback-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin: 8px 0;
+  }
+
+  .cashback-progress {
+    margin-top: 16px;
+    background: rgba(255,255,255,0.06);
+    height: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cashback-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold));
+    transition: width 1s ease;
+  }
+
+  .cashback-conditions {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .condition-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--gray-light);
+    letter-spacing: 0.5px;
+  }
+
+  .condition-check {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+
+  .condition-check.done {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+
+  /* ── COMMISSION WIDGET ──────────────────────────────────── */
+  .commission-widget {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .commission-donut {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+
+  .commission-donut svg { transform: rotate(-90deg); }
+
+  .commission-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .commission-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .commission-label {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--gray-light);
+    text-transform: uppercase;
+  }
+
+  /* ── ORDER FORM ─────────────────────────────────────────── */
+  .order-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .product-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .product-card {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+  }
+
+  .product-card:hover, .product-card.selected {
+    border-color: var(--gold);
+    background: rgba(203,165,93,0.05);
+  }
+
+  .product-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--gold);
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .product-qty { font-size: 11px; color: var(--gray-light); margin-bottom: 8px; }
+
+  .product-price {
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+  }
+
+  .product-price span { font-size: 11px; color: var(--gray-light); }
+
+  /* ── SUMMARY BOX ────────────────────────────────────────── */
+  .order-summary {
+    background: rgba(203,165,93,0.05);
+    border: 1px solid var(--gold-dark);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 6px 0;
+    color: var(--gray-light);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .summary-row:last-child {
+    border: none;
+    color: var(--gold);
+    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+
+  /* ── COMMISSIONS TABLE ──────────────────────────────────── */
+  .commission-row td:last-child { color: var(--green); font-weight: 600; }
+
+  /* ── ADMIN PANELS ───────────────────────────────────────── */
+  .admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* ── MAP / ZONES ─────────────────────────────────────────── */
+  .zone-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .zone-card {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .zone-card:hover { border-color: var(--gold-dark); }
+
+  .zone-name {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .zone-bars { font-size: 20px; font-family: 'Playfair Display', serif; color: var(--gold); }
+  .zone-agent { font-size: 9px; color: var(--gray-light); margin-top: 4px; }
+
+  /* ── TABS ───────────────────────────────────────────────── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--black-border);
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    color: var(--gray-light);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -1px;
+  }
+
+  .tab-btn:hover { color: var(--white); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── ALERT ──────────────────────────────────────────────── */
+  .alert {
+    padding: 14px 18px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 3px solid;
+  }
+
+  .alert-gold  { background: rgba(203,165,93,0.08); border-color: var(--gold);  color: var(--cream); }
+  .alert-green { background: rgba(76,175,80,0.08);  border-color: var(--green); color: #A5D6A7; }
+
+  /* ── 2-COL GRID ─────────────────────────────────────────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* ── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .app-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .order-grid, .two-col, .admin-grid { grid-template-columns: 1fr; }
+    .product-selector { grid-template-columns: 1fr; }
+  }
+
+  /* ── SCROLL ─────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--black-border); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+  /* ── ANIMATIONS ─────────────────────────────────────────── */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .page.active { animation: fadeIn 0.3s ease; }
+
+  .gold-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .gold-line::before, .gold-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dark));
+  }
+
+  .gold-line::after {
+    background: linear-gradient(to left, transparent, var(--gold-dark));
+  }
+
+  .gold-line span {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ÉCRAN LOGIN -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div id="screen-login" style="display: none;">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="brand-mark">
+        <div class="logo-ornament"></div>
+        <div>
+          <h1>La Dandyne</h1>
+          <div class="subtitle">1890 · Fine Bubbles · Low Alcohol</div>
+        </div>
+        <div class="logo-ornament"></div>
+      </div>
+    </div>
+    <div class="login-title">Plateforme Commerciale</div>
+    <div class="form-group">
+      <label>Adresse email</label>
+      <input type="email" id="login-email" placeholder="votre@email.com">
+    </div>
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <input type="password" id="login-pass" placeholder="••••••••">
+    </div>
+    <button class="btn-primary" onclick="doLogin()"><span>Se connecter</span></button>
+    <div class="demo-profiles">
+      <p>Accès démo rapide</p>
+      <div class="demo-btns">
+        <button class="demo-btn" onclick="loginAs(&#39;admin&#39;)">👑 Admin</button>
+        <button class="demo-btn" onclick="loginAs(&#39;commercial&#39;)">🤝 Commercial</button>
+        <button class="demo-btn" onclick="loginAs(&#39;client&#39;)">🍺 Client CHR</button>
+        <button class="demo-btn" onclick="loginAs(&#39;brasseur&#39;)">🏭 Brasseur</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- APP PRINCIPALE -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div id="screen-app" style="display: block;">
+  <div class="app-layout">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-brand">
+        <div>
+          <div class="brand-name">La Dandyne</div>
+          <span class="brand-sub">Plateforme commerciale</span>
+        </div>
+        <div class="topbar-ornament"></div>
+        <div id="topbar-section" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light)">Admin</div>
+      </div>
+      <div class="topbar-right">
+        <div class="user-pill">
+          <div class="user-avatar" id="user-avatar">JB</div>
+          <div class="user-info">
+            <div class="user-name" id="user-name">Julien Brunin</div>
+            <div class="user-role" id="user-role">Administrateur</div>
+          </div>
+        </div>
+        <button class="btn-logout" onclick="logout()">Déconnexion</button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar"><div class="nav-section"><div class="nav-section-title">Tableau de bord</div><div class="nav-item active" data-page="admin-dashboard">
+        <span class="nav-icon">⬛</span>
+        <span>Vue générale</span>
+        
+      </div><div class="nav-item" data-page="admin-commandes">
+        <span class="nav-icon">📦</span>
+        <span>Commandes</span>
+        <span class="nav-badge">47</span>
+      </div></div><div class="nav-section"><div class="nav-section-title">Réseau commercial</div><div class="nav-item" data-page="admin-agents">
+        <span class="nav-icon">🤝</span>
+        <span>Agents</span>
+        <span class="nav-badge">12</span>
+      </div><div class="nav-item active" data-page="admin-dashboard">
+        <span class="nav-icon">🍺</span>
+        <span>Clients CHR</span>
+        
+      </div><div class="nav-item active" data-page="admin-dashboard">
+        <span class="nav-icon">🏭</span>
+        <span>Brasseurs</span>
+        
+      </div></div><div class="nav-section"><div class="nav-section-title">Finance</div><div class="nav-item active" data-page="admin-dashboard">
+        <span class="nav-icon">💶</span>
+        <span>Commissions</span>
+        
+      </div><div class="nav-item active" data-page="admin-dashboard">
+        <span class="nav-icon">🎁</span>
+        <span>Cashbacks</span>
+        
+      </div></div></div>
+
+    <!-- MAIN -->
+    <div class="main-content" id="main-content">
+
+      <!-- ── PAGE : DASHBOARD ADMIN ─────────────────────── -->
+      <div class="page active" id="page-admin-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Tableau de bord</div>
+            <div class="page-subtitle">Vue globale — Avril 2026</div>
+          </div>
+          <button class="card-action" onclick="showPage(&#39;admin-export&#39;)">↓ Exporter</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Bouteilles commandées / an</div>
+            <div class="stat-value">142 560 <span class="stat-unit">btl</span></div>
+            <div class="stat-trend">↑ +18% vs mois précédent</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">CA total HTVA</div>
+            <div class="stat-value">513 <span class="stat-unit">K EUR</span></div>
+            <div class="stat-trend">↑ +22% vs mois précédent</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Bars actifs</div>
+            <div class="stat-value">384 <span class="stat-unit">CHR</span></div>
+            <div class="stat-trend">↑ +47 ce mois</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Commissions dues / mois</div>
+            <div class="stat-value">8 910 <span class="stat-unit">EUR</span></div>
+            <div class="stat-trend">→ 12 agents actifs</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Agents — Top 5 ce mois</div>
+              <button class="card-action" onclick="showPage(&#39;admin-agents&#39;)">Voir tous</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <th>Région</th>
+                  <th>Bars signés</th>
+                  <th>Commission</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="commission-row">
+                  <td>Sophie Martin</td>
+                  <td><span class="badge badge-blue">Nord (59)</span></td>
+                  <td>42</td>
+                  <td>1 890 EUR</td>
+                </tr>
+                <tr class="commission-row">
+                  <td>Marc Dubois</td>
+                  <td><span class="badge badge-blue">Bruxelles</span></td>
+                  <td>38</td>
+                  <td>1 710 EUR</td>
+                </tr>
+                <tr class="commission-row">
+                  <td>Isabelle Dumont</td>
+                  <td><span class="badge badge-blue">Pas-de-Calais</span></td>
+                  <td>31</td>
+                  <td>1 395 EUR</td>
+                </tr>
+                <tr class="commission-row">
+                  <td>Pierre Leroy</td>
+                  <td><span class="badge badge-blue">Liège</span></td>
+                  <td>28</td>
+                  <td>1 260 EUR</td>
+                </tr>
+                <tr class="commission-row">
+                  <td>Aurélie Simon</td>
+                  <td><span class="badge badge-blue">Anvers</span></td>
+                  <td>24</td>
+                  <td>1 080 EUR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Dernières commandes</div>
+              <button class="card-action" onclick="showPage(&#39;admin-commandes&#39;)">Voir toutes</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Volume</th>
+                  <th>Montant</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Café de la Paix — Lille</td>
+                  <td>60 btl</td>
+                  <td>216 EUR</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+                <tr>
+                  <td>Distri-Boisson Nord</td>
+                  <td>630 btl</td>
+                  <td>1 890 EUR</td>
+                  <td><span class="badge badge-gold">En cours</span></td>
+                </tr>
+                <tr>
+                  <td>Hôtel du Beffroi — Tournai</td>
+                  <td>60 btl</td>
+                  <td>216 EUR</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+                <tr>
+                  <td>Vanuxeem Boissons</td>
+                  <td>17 640 btl</td>
+                  <td>49 392 EUR</td>
+                  <td><span class="badge badge-blue">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td>Le Grand Café — Gand</td>
+                  <td>60 btl</td>
+                  <td>216 EUR</td>
+                  <td><span class="badge badge-gray">En attente</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Couverture terrain — Belgique &amp; France</div>
+          </div>
+          <div class="zone-grid">
+            <div class="zone-card">
+              <div class="zone-name">Bruxelles</div>
+              <div class="zone-bars">38</div>
+              <div class="zone-agent">Marc Dubois</div>
+            </div>
+            <div class="zone-card">
+              <div class="zone-name">Anvers</div>
+              <div class="zone-bars">24</div>
+              <div class="zone-agent">Aurélie Simon</div>
+            </div>
+            <div class="zone-card">
+              <div class="zone-name">Liège</div>
+              <div class="zone-bars">28</div>
+              <div class="zone-agent">Pierre Leroy</div>
+            </div>
+            <div class="zone-card">
+              <div class="zone-name">Nord (59)</div>
+              <div class="zone-bars">42</div>
+              <div class="zone-agent">Sophie Martin</div>
+            </div>
+            <div class="zone-card">
+              <div class="zone-name">Pas-de-Calais</div>
+              <div class="zone-bars">31</div>
+              <div class="zone-agent">Isabelle Dumont</div>
+            </div>
+            <div class="zone-card" style="border-style:dashed;opacity:0.4;">
+              <div class="zone-name">Paris (75)</div>
+              <div class="zone-bars">—</div>
+              <div class="zone-agent">Agent recherché</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE : DASHBOARD COMMERCIAL ──────────────────── -->
+      <div class="page" id="page-commercial-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Mon tableau de bord</div>
+            <div class="page-subtitle">Sophie Martin — Nord (59) — Avril 2026</div>
+          </div>
+          <button class="btn-primary" style="width:auto;padding:10px 20px;" onclick="showPage(&#39;commercial-commande&#39;)">
+            <span>+ Nouvelle commande</span>
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Commission ce mois</div>
+            <div class="stat-value">1 890 <span class="stat-unit">EUR</span></div>
+            <div class="stat-trend">↑ +240 EUR vs mars</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Commission année en cours</div>
+            <div class="stat-value">6 240 <span class="stat-unit">EUR</span></div>
+            <div class="stat-trend">→ 4 mois d'activité</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Bars actifs dans ma zone</div>
+            <div class="stat-value">42 <span class="stat-unit">CHR</span></div>
+            <div class="stat-trend">↑ +8 ce mois</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Bouteilles vendues / mois</div>
+            <div class="stat-value">7 560 <span class="stat-unit">btl</span></div>
+            <div class="stat-trend">→ Objectif : 10 000</div>
+          </div>
+        </div>
+
+        <div class="alert alert-gold">
+          💡 Objectif mensuel : <strong>10 000 btl</strong> — Tu es à 75,6%. Il te manque <strong>2 440 btl</strong> pour déclencher le bonus de 150 EUR.
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Mes clients CHR actifs</div>
+              <button class="card-action" onclick="showPage(&#39;commercial-clients&#39;)">Voir tous</button>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Établissement</th><th>Ville</th><th>Btl/mois</th><th>Statut</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Café de la Paix</td>
+                  <td>Lille</td>
+                  <td>120</td>
+                  <td><span class="badge badge-green">Actif</span></td>
+                </tr>
+                <tr>
+                  <td>Bar Le Dandy</td>
+                  <td>Roubaix</td>
+                  <td>180</td>
+                  <td><span class="badge badge-green">Actif</span></td>
+                </tr>
+                <tr>
+                  <td>Brasserie du Nord</td>
+                  <td>Tourcoing</td>
+                  <td>240</td>
+                  <td><span class="badge badge-green">Actif</span></td>
+                </tr>
+                <tr>
+                  <td>Le Comptoir</td>
+                  <td>Valenciennes</td>
+                  <td>60</td>
+                  <td><span class="badge badge-gold">Pack signé</span></td>
+                </tr>
+                <tr>
+                  <td>Café des Arts</td>
+                  <td>Dunkerque</td>
+                  <td>—</td>
+                  <td><span class="badge badge-gray">Intéressé</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Mes commandes récentes</div>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Client</th><th>Volume</th><th>Commission</th><th>Statut</th></tr>
+              </thead>
+              <tbody class="commission-row">
+                <tr>
+                  <td>Café de la Paix</td>
+                  <td>60 btl</td>
+                  <td>15 EUR</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+                <tr>
+                  <td>Bar Le Dandy</td>
+                  <td>120 btl</td>
+                  <td>30 EUR</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+                <tr>
+                  <td>Brasserie du Nord</td>
+                  <td>240 btl</td>
+                  <td>60 EUR</td>
+                  <td><span class="badge badge-gold">En cours</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE : PASSER COMMANDE (COMMERCIAL) ───────────── -->
+      <div class="page" id="page-commercial-commande">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Nouvelle commande</div>
+            <div class="page-subtitle">Passer une commande pour un client ou un brasseur</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">1. Pour qui commandez-vous ?</div>
+          </div>
+          <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchOrderTab(&#39;client&#39;, this)">Client CHR</button>
+            <button class="tab-btn" onclick="switchOrderTab(&#39;brasseur&#39;, this)">Brasseur / Grossiste</button>
+          </div>
+          <div id="order-tab-client" class="tab-content active">
+            <div class="order-grid">
+              <div class="form-group">
+                <label>Sélectionner le client</label>
+                <select>
+                  <option>Café de la Paix — Lille</option>
+                  <option>Bar Le Dandy — Roubaix</option>
+                  <option>Brasserie du Nord — Tourcoing</option>
+                  <option>Le Comptoir — Valenciennes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Brasseur attitré</label>
+                <select>
+                  <option>Distri-Boisson Nord (auto-rempli)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="order-tab-brasseur" class="tab-content">
+            <div class="form-group">
+              <label>Sélectionner le brasseur</label>
+              <select>
+                <option>Distri-Boisson Nord</option>
+                <option>Vanuxeem Boissons</option>
+                <option>France Boisson Lille</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">2. Sélectionner le produit</div>
+          </div>
+          <div class="product-selector">
+            <div class="product-card selected" onclick="selectProduct(this, 60, 216)">
+              <div class="product-name">La Dandyne</div>
+              <div class="product-qty">Caisse — 60 btl</div>
+              <div class="product-price">216 EUR <span>HTVA</span></div>
+              <div style="font-size:9px;color:var(--gray-light);margin-top:6px;">3,60 EUR / btl</div>
+            </div>
+            <div class="product-card" onclick="selectProduct(this, 630, 1890)">
+              <div class="product-name">La Dandyne</div>
+              <div class="product-qty">Palette — 630 btl</div>
+              <div class="product-price">1 890 EUR <span>HTVA</span></div>
+              <div style="font-size:9px;color:var(--gray-light);margin-top:6px;">3,00 EUR / btl</div>
+            </div>
+            <div class="product-card" onclick="selectProduct(this, 17640, 49392)">
+              <div class="product-name">La Dandyne</div>
+              <div class="product-qty">Camion — 17 640 btl</div>
+              <div class="product-price">49 392 EUR <span>HTVA</span></div>
+              <div style="font-size:9px;color:var(--gold);margin-top:6px;">2,80 EUR / btl ★</div>
+            </div>
+            <div class="product-card" onclick="selectProduct(this, 72, 280)">
+              <div class="product-name">Pack Lancement</div>
+              <div class="product-qty">60 Dandyne + 12 Apérol 1L</div>
+              <div class="product-price">374 EUR <span>HTVA</span></div>
+              <div style="font-size:9px;color:var(--gold);margin-top:6px;">Best seller ★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">3. Récapitulatif</div>
+          </div>
+          <div class="order-summary">
+            <div class="summary-row"><span>Produit</span><span id="sum-product">La Dandyne — 60 btl</span></div>
+            <div class="summary-row"><span>Quantité</span><span id="sum-qty">1 caisse</span></div>
+            <div class="summary-row"><span>Prix HTVA</span><span id="sum-price">216 EUR</span></div>
+            <div class="summary-row"><span>TVA (21%)</span><span id="sum-tva">45,36 EUR</span></div>
+            <div class="summary-row"><span>Votre commission</span><span id="sum-commission" style="color:var(--green)">15 EUR</span></div>
+            <div class="summary-row"><span>Total TVAC</span><span id="sum-total">261,36 EUR</span></div>
+          </div>
+          <div class="form-group">
+            <label>Notes de livraison (optionnel)</label>
+            <textarea rows="2" placeholder="Sonnette à gauche, livraison matin..."></textarea>
+          </div>
+          <button class="btn-primary" onclick="confirmOrder()"><span>✓ Confirmer la commande</span></button>
+        </div>
+      </div>
+
+      <!-- ── PAGE : DASHBOARD CLIENT CHR ──────────────────── -->
+      <div class="page" id="page-client-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Mon espace client</div>
+            <div class="page-subtitle">Bar Le Dandy — Roubaix — 59100</div>
+          </div>
+          <button class="btn-primary" style="width:auto;padding:10px 20px;" onclick="showPage(&#39;client-commande&#39;)">
+            <span>+ Commander</span>
+          </button>
+        </div>
+
+        <div class="alert alert-green">
+          🫧 Bienvenue ! Votre commercial attitré est <strong>Sophie Martin</strong> — 0489 007 007. Votre brasseur : <strong>Distri-Boisson Nord</strong>.
+        </div>
+
+        <!-- Cashback Widget -->
+        <div class="cashback-widget" style="margin-bottom:20px;">
+          <div class="stat-label">Mon cashback 2026</div>
+          <div class="cashback-amount">288 EUR</div>
+          <div style="font-size:11px;color:var(--gray-light);margin-bottom:12px;">720 bouteilles achetées × 0,40 EUR — versement décembre 2026</div>
+          <div class="cashback-progress">
+            <div class="cashback-bar" style="width:60%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--gray);margin-top:6px;">
+            <span>0</span>
+            <span>720 btl achetées</span>
+            <span>Objectif 1 200 btl</span>
+          </div>
+          <div class="cashback-conditions">
+            <div class="condition-item">
+              <div class="condition-check done">✓</div>
+              <span>Frigo vitrine</span>
+            </div>
+            <div class="condition-item">
+              <div class="condition-check done">✓</div>
+              <span>Sur la carte</span>
+            </div>
+            <div class="condition-item">
+              <div class="condition-check">·</div>
+              <span>Photo WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Mes commandes</div>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Date</th><th>Produit</th><th>Btl</th><th>Statut</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01/04/2026</td>
+                  <td>La Dandyne</td>
+                  <td>120</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+                <tr>
+                  <td>15/03/2026</td>
+                  <td>Pack Lancement</td>
+                  <td>60+12A</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+                <tr>
+                  <td>01/03/2026</td>
+                  <td>La Dandyne</td>
+                  <td>60</td>
+                  <td><span class="badge badge-green">Livré</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">The Dandy Spritz</div>
+            </div>
+            <div style="text-align:center;padding:20px;">
+              <div style="font-family:&#39;Playfair Display&#39;,serif;font-size:22px;color:var(--gold);margin-bottom:8px;">La recette</div>
+              <div style="font-size:12px;color:var(--gray-light);line-height:2;">
+                <strong style="color:var(--white)">1/3</strong> Apérol<br>
+                <strong style="color:var(--white)">2/3</strong> La Dandyne<br>
+                <strong style="color:var(--white)">+</strong> Glaçons<br>
+                <strong style="color:var(--white)">+</strong> Rondelle d'orange · Cerise amarena
+              </div>
+              <div style="margin-top:16px;padding:12px;background:rgba(203,165,93,0.08);border:1px solid var(--gold-dark);font-size:10px;color:var(--gray-light);">
+                Coût ingrédients : <strong style="color:var(--gold)">~1,58 EUR</strong><br>
+                Prix de vente conseillé : <strong style="color:var(--gold)">8 à 12 EUR</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE : COMMANDE CLIENT ─────────────────────────── -->
+      <div class="page" id="page-client-commande">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Passer une commande</div>
+            <div class="page-subtitle">Bar Le Dandy — Roubaix</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Choisir votre produit</div>
+          </div>
+          <div class="product-selector">
+            <div class="product-card selected">
+              <div class="product-name">La Dandyne</div>
+              <div class="product-qty">Caisse — 60 btl</div>
+              <div class="product-price">216 EUR <span>HTVA</span></div>
+              <div style="font-size:9px;color:var(--gray-light);margin-top:6px;">3,60 EUR / btl</div>
+            </div>
+            <div class="product-card">
+              <div class="product-name">Pack Lancement</div>
+              <div class="product-qty">60 Dandyne + 12 Apérol 1L</div>
+              <div class="product-price">374 EUR <span>HTVA</span></div>
+              <div style="font-size:9px;color:var(--gold);margin-top:6px;">★ Meilleure offre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Votre cashback après cette commande</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:24px;padding:8px 0;">
+            <div style="flex:1">
+              <div style="font-size:11px;color:var(--gray-light);margin-bottom:8px;">Cashback actuel</div>
+              <div style="font-family:&#39;Playfair Display&#39;,serif;font-size:28px;color:var(--gray-light);">288 EUR</div>
+            </div>
+            <div style="font-size:24px;color:var(--gold-dark)">→</div>
+            <div style="flex:1">
+              <div style="font-size:11px;color:var(--gold);margin-bottom:8px;">Après cette commande</div>
+              <div style="font-family:&#39;Playfair Display&#39;,serif;font-size:28px;color:var(--gold);">312 EUR</div>
+              <div style="font-size:10px;color:var(--green)">+ 24 EUR (60 btl × 0,40 EUR)</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary" onclick="showPage(&#39;client-dashboard&#39;);alert(&#39;✓ Commande confirmée ! Votre brasseur Distri-Boisson Nord vous contactera sous 48h.&#39;)">
+          <span>✓ Confirmer la commande</span>
+        </button>
+      </div>
+
+      <!-- ── PAGE : DASHBOARD BRASSEUR ─────────────────────── -->
+      <div class="page" id="page-brasseur-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Espace Brasseur</div>
+            <div class="page-subtitle">Distri-Boisson Nord — Compte grossiste</div>
+          </div>
+          <button class="btn-primary" style="width:auto;padding:10px 20px;" onclick="showPage(&#39;brasseur-commande&#39;)">
+            <span>+ Commander</span>
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Volume commandé / mois</div>
+            <div class="stat-value">3 150 <span class="stat-unit">btl</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Clients CHR livrés</div>
+            <div class="stat-value">18 <span class="stat-unit">bars</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">CA La Dandyne / mois</div>
+            <div class="stat-value">9 450 <span class="stat-unit">EUR</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Prix palette</div>
+            <div class="stat-value">3,00 <span class="stat-unit">EUR/btl</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Mes clients CHR — La Dandyne</div>
+            <button class="card-action" onclick="showPage(&#39;brasseur-commande&#39;)">Commander pour un client</button>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Établissement</th><th>Ville</th><th>Btl/mois</th><th>Dernière livraison</th><th>Cashback client</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Café de la Paix</td>
+                <td>Lille</td>
+                <td>120</td>
+                <td>01/04/2026</td>
+                <td><span class="badge badge-gold">96 EUR</span></td>
+              </tr>
+              <tr>
+                <td>Bar Le Dandy</td>
+                <td>Roubaix</td>
+                <td>180</td>
+                <td>28/03/2026</td>
+                <td><span class="badge badge-gold">144 EUR</span></td>
+              </tr>
+              <tr>
+                <td>Brasserie du Nord</td>
+                <td>Tourcoing</td>
+                <td>240</td>
+                <td>25/03/2026</td>
+                <td><span class="badge badge-gold">192 EUR</span></td>
+              </tr>
+              <tr>
+                <td>Le Comptoir</td>
+                <td>Valenciennes</td>
+                <td>60</td>
+                <td>20/03/2026</td>
+                <td><span class="badge badge-gold">24 EUR</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── PAGE : COMMANDE BRASSEUR ───────────────────────── -->
+      <div class="page" id="page-brasseur-commande">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Passer une commande</div>
+            <div class="page-subtitle">Distri-Boisson Nord</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Qui commande ?</div>
+          </div>
+          <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchOrderTab(&#39;b-moi&#39;, this)">Pour moi (stock)</button>
+            <button class="tab-btn" onclick="switchOrderTab(&#39;b-client&#39;, this)">Pour un client CHR</button>
+          </div>
+          <div id="order-tab-b-moi" class="tab-content active">
+            <div class="product-selector">
+              <div class="product-card selected">
+                <div class="product-name">La Dandyne</div>
+                <div class="product-qty">Palette — 630 btl</div>
+                <div class="product-price">1 890 EUR <span>HTVA</span></div>
+                <div style="font-size:9px;color:var(--gold);margin-top:6px;">3,00 EUR / btl</div>
+              </div>
+              <div class="product-card">
+                <div class="product-name">La Dandyne</div>
+                <div class="product-qty">Camion — 17 640 btl</div>
+                <div class="product-price">49 392 EUR <span>HTVA</span></div>
+                <div style="font-size:9px;color:var(--gold);margin-top:6px;">2,80 EUR / btl ★</div>
+              </div>
+            </div>
+          </div>
+          <div id="order-tab-b-client" class="tab-content">
+            <div class="order-grid">
+              <div class="form-group">
+                <label>Sélectionner le client</label>
+                <select>
+                  <option>Café de la Paix — Lille</option>
+                  <option>Bar Le Dandy — Roubaix</option>
+                  <option>Brasserie du Nord — Tourcoing</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Volume</label>
+                <select>
+                  <option>60 bouteilles — 1 caisse (216 EUR)</option>
+                  <option>120 bouteilles — 2 caisses (432 EUR)</option>
+                  <option>Pack Lancement (374 EUR)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary" onclick="showPage(&#39;brasseur-dashboard&#39;);alert(&#39;✓ Commande confirmée — Livraison sous 6 semaines depuis Petersbach.&#39;)">
+          <span>✓ Valider la commande</span>
+        </button>
+      </div>
+
+      <!-- ── PAGE : ADMIN AGENTS ────────────────────────────── -->
+      <div class="page" id="page-admin-agents">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Gestion des agents</div>
+            <div class="page-subtitle">12 agents actifs — Belgique &amp; France</div>
+          </div>
+          <button class="btn-primary" style="width:auto;padding:10px 20px;" onclick="alert(&#39;Formulaire recrutement agent&#39;)">
+            <span>+ Recruter un agent</span>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Tous les agents commerciaux</div>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Agent</th><th>Zone</th><th>Pays</th><th>Bars actifs</th><th>Btl/mois</th><th>Commission/mois</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sophie Martin</strong></td>
+                <td>Nord (59)</td>
+                <td>🇫🇷</td>
+                <td>42</td>
+                <td>7 560</td>
+                <td style="color:var(--green)">1 890 EUR</td>
+                <td><span class="badge badge-green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>Marc Dubois</strong></td>
+                <td>Bruxelles</td>
+                <td>🇧🇪</td>
+                <td>38</td>
+                <td>6 840</td>
+                <td style="color:var(--green)">1 710 EUR</td>
+                <td><span class="badge badge-green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>Isabelle Dumont</strong></td>
+                <td>Pas-de-Calais (62)</td>
+                <td>🇫🇷</td>
+                <td>31</td>
+                <td>5 580</td>
+                <td style="color:var(--green)">1 395 EUR</td>
+                <td><span class="badge badge-green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>Pierre Leroy</strong></td>
+                <td>Liège</td>
+                <td>🇧🇪</td>
+                <td>28</td>
+                <td>5 040</td>
+                <td style="color:var(--green)">1 260 EUR</td>
+                <td><span class="badge badge-green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>Aurélie Simon</strong></td>
+                <td>Anvers</td>
+                <td>🇧🇪</td>
+                <td>24</td>
+                <td>4 320</td>
+                <td style="color:var(--green)">1 080 EUR</td>
+                <td><span class="badge badge-green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>Thomas Bernard</strong></td>
+                <td>Somme (80)</td>
+                <td>🇫🇷</td>
+                <td>12</td>
+                <td>2 160</td>
+                <td style="color:var(--green)">540 EUR</td>
+                <td><span class="badge badge-gold">En démarrage</span></td>
+              </tr>
+              <tr style="opacity:0.5;">
+                <td><strong>—</strong></td>
+                <td>Paris (75)</td>
+                <td>🇫🇷</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="badge badge-gray">Recrutement</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── PAGE : ADMIN COMMANDES ─────────────────────────── -->
+      <div class="page" id="page-admin-commandes">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Toutes les commandes</div>
+            <div class="page-subtitle">Avril 2026 — 47 commandes</div>
+          </div>
+        </div>
+        <div class="card">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Client</th><th>Type</th><th>Volume</th><th>Montant</th><th>Agent</th><th>Commission</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>02/04</td><td>Vanuxeem Boissons</td><td><span class="badge badge-gold">Camion</span></td><td>17 640</td><td>49 392 EUR</td><td>Marc Dubois</td><td style="color:var(--green)">4 410 EUR</td><td><span class="badge badge-blue">Confirmé</span></td>
+              </tr>
+              <tr>
+                <td>01/04</td><td>Café de la Paix</td><td><span class="badge badge-gray">Caisse</span></td><td>60</td><td>216 EUR</td><td>Sophie Martin</td><td style="color:var(--green)">15 EUR</td><td><span class="badge badge-green">Livré</span></td>
+              </tr>
+              <tr>
+                <td>01/04</td><td>Bar Le Dandy</td><td><span class="badge badge-gray">Caisse</span></td><td>120</td><td>432 EUR</td><td>Sophie Martin</td><td style="color:var(--green)">30 EUR</td><td><span class="badge badge-green">Livré</span></td>
+              </tr>
+              <tr>
+                <td>31/03</td><td>Distri-Boisson Nord</td><td><span class="badge badge-gold">Palette</span></td><td>630</td><td>1 890 EUR</td><td>Sophie Martin</td><td style="color:var(--green)">157 EUR</td><td><span class="badge badge-gold">En cours</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /main-content -->
+  </div><!-- /app-layout -->
+</div><!-- /screen-app -->
+
+<script>
+// ── DONNÉES DE DÉMO ─────────────────────────────────────────────
+const profiles = {
+  admin: {
+    name: 'Julien Brunin', role: 'Administrateur', initials: 'JB', section: 'Admin',
+    nav: [
+      { section: 'Tableau de bord', items: [
+        { icon: '⬛', label: 'Vue générale', page: 'admin-dashboard' },
+        { icon: '📦', label: 'Commandes', page: 'admin-commandes', badge: '47' },
+      ]},
+      { section: 'Réseau commercial', items: [
+        { icon: '🤝', label: 'Agents', page: 'admin-agents', badge: '12' },
+        { icon: '🍺', label: 'Clients CHR', page: 'admin-dashboard' },
+        { icon: '🏭', label: 'Brasseurs', page: 'admin-dashboard' },
+      ]},
+      { section: 'Finance', items: [
+        { icon: '💶', label: 'Commissions', page: 'admin-dashboard' },
+        { icon: '🎁', label: 'Cashbacks', page: 'admin-dashboard' },
+      ]},
+    ],
+    defaultPage: 'admin-dashboard'
+  },
+  commercial: {
+    name: 'Sophie Martin', role: 'Agent Commercial', initials: 'SM', section: 'Commercial',
+    nav: [
+      { section: 'Mon espace', items: [
+        { icon: '⬛', label: 'Tableau de bord', page: 'commercial-dashboard' },
+        { icon: '🛒', label: 'Nouvelle commande', page: 'commercial-commande' },
+        { icon: '👥', label: 'Mes clients', page: 'commercial-clients' },
+      ]},
+      { section: 'Mes revenus', items: [
+        { icon: '💶', label: 'Mes commissions', page: 'commercial-dashboard' },
+      ]},
+    ],
+    defaultPage: 'commercial-dashboard'
+  },
+  client: {
+    name: 'Bar Le Dandy', role: 'Client CHR', initials: 'BD', section: 'Client',
+    nav: [
+      { section: 'Mon compte', items: [
+        { icon: '⬛', label: 'Mon espace', page: 'client-dashboard' },
+        { icon: '🛒', label: 'Commander', page: 'client-commande' },
+        { icon: '💰', label: 'Mon cashback', page: 'client-dashboard' },
+      ]},
+    ],
+    defaultPage: 'client-dashboard'
+  },
+  brasseur: {
+    name: 'Distri-Boisson Nord', role: 'Brasseur / Grossiste', initials: 'DB', section: 'Brasseur',
+    nav: [
+      { section: 'Mon compte', items: [
+        { icon: '⬛', label: 'Tableau de bord', page: 'brasseur-dashboard' },
+        { icon: '🛒', label: 'Commander', page: 'brasseur-commande' },
+        { icon: '👥', label: 'Mes clients CHR', page: 'brasseur-dashboard' },
+      ]},
+    ],
+    defaultPage: 'brasseur-dashboard'
+  }
+};
+
+let currentProfile = null;
+let currentPage = null;
+
+// ── LOGIN ───────────────────────────────────────────────────────
+function doLogin() {
+  loginAs('admin');
+}
+
+function loginAs(type) {
+  currentProfile = profiles[type];
+  document.getElementById('screen-login').style.display = 'none';
+  document.getElementById('screen-app').style.display = 'block';
+
+  document.getElementById('user-name').textContent = currentProfile.name;
+  document.getElementById('user-role').textContent = currentProfile.role;
+  document.getElementById('user-avatar').textContent = currentProfile.initials;
+  document.getElementById('topbar-section').textContent = currentProfile.section;
+
+  renderSidebar();
+  showPage(currentProfile.defaultPage);
+}
+
+function logout() {
+  document.getElementById('screen-login').style.display = 'flex';
+  document.getElementById('screen-app').style.display = 'none';
+}
+
+// ── SIDEBAR ─────────────────────────────────────────────────────
+function renderSidebar() {
+  const sb = document.getElementById('sidebar');
+  sb.innerHTML = '';
+  currentProfile.nav.forEach(section => {
+    const div = document.createElement('div');
+    div.className = 'nav-section';
+    div.innerHTML = `<div class="nav-section-title">${section.section}</div>`;
+    section.items.forEach(item => {
+      const btn = document.createElement('div');
+      btn.className = 'nav-item';
+      btn.dataset.page = item.page;
+      btn.innerHTML = `
+        <span class="nav-icon">${item.icon}</span>
+        <span>${item.label}</span>
+        ${item.badge ? `<span class="nav-badge">${item.badge}</span>` : ''}
+      `;
+      btn.onclick = () => showPage(item.page);
+      div.appendChild(btn);
+    });
+    sb.appendChild(div);
+  });
+}
+
+// ── NAVIGATION ──────────────────────────────────────────────────
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+  const page = document.getElementById('page-' + pageId);
+  if (page) page.classList.add('active');
+
+  document.querySelectorAll(`.nav-item[data-page="${pageId}"]`).forEach(n => n.classList.add('active'));
+
+  currentPage = pageId;
+}
+
+// ── TABS ─────────────────────────────────────────────────────────
+function switchOrderTab(tabId, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const content = document.getElementById('order-tab-' + tabId);
+  if (content) content.classList.add('active');
+}
+
+// ── PRODUIT SELECTOR ─────────────────────────────────────────────
+function selectProduct(el, qty, price) {
+  el.closest('.product-selector').querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+
+  const name = el.querySelector('.product-name').textContent;
+  const qtyLabel = el.querySelector('.product-qty').textContent;
+  const commission = Math.round(qty * 0.25);
+  const tva = Math.round(price * 0.21 * 100) / 100;
+
+  if (document.getElementById('sum-product')) {
+    document.getElementById('sum-product').textContent = name + ' — ' + qtyLabel;
+    document.getElementById('sum-qty').textContent = qtyLabel;
+    document.getElementById('sum-price').textContent = price.toLocaleString('fr') + ' EUR';
+    document.getElementById('sum-tva').textContent = tva.toLocaleString('fr') + ' EUR';
+    document.getElementById('sum-commission').textContent = commission.toLocaleString('fr') + ' EUR';
+    document.getElementById('sum-total').textContent = (price + tva).toLocaleString('fr') + ' EUR';
+  }
+}
+
+// ── CONFIRM ORDER ────────────────────────────────────────────────
+function confirmOrder() {
+  alert('✓ Commande confirmée !\n\nUn email de confirmation a été envoyé.\nVotre commission a été créditée.');
+  showPage(currentProfile.defaultPage);
+}
+
+// ── INIT ─────────────────────────────────────────────────────────
+document.getElementById('screen-app').style.display = 'none';
+</script>
+
+
+</body></html>
